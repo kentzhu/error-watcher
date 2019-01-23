@@ -2,7 +2,7 @@
 
 namespace app\api\controller\lib;
 
-class DTOReportRecordRequest extends ApiBaseDTO
+class DTOReportRecord extends ApiBaseDTO
 {
     public static function instance()
     {
@@ -45,7 +45,7 @@ class DTOReportRecordRequest extends ApiBaseDTO
     }
 
     /**
-     * @param array $error_stack
+     * @param string $raw_error_stack
      */
     public function setErrorStackByCompressedRaw(string $raw_error_stack)
     {

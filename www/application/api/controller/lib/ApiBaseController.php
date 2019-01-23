@@ -43,6 +43,8 @@ abstract class ApiBaseController extends BaseController
     }
 
     /**
+     * API返回成功状态
+     *
      * @param array $return_structure
      * @return \think\Response
      */
@@ -56,6 +58,8 @@ abstract class ApiBaseController extends BaseController
     }
 
     /**
+     * API返回异常状态
+     *
      * @param string $error_code
      * @param string $error_message
      * @return \think\Response

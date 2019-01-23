@@ -3,14 +3,19 @@
 namespace app\api\controller;
 
 use app\api\controller\lib\ApiBaseController;
-use app\api\controller\lib\DTOReportRecordRequest;
+use app\api\controller\lib\DTOReportRecord;
 use app\api\event\ClientReportEvent;
 
 class Report extends ApiBaseController
 {
+    /**
+     * 前端日志上报接口
+     *
+     * @return \think\Response
+     */
     public function record()
     {
-        $record = DTOReportRecordRequest::instance();
+        $record = DTOReportRecord::instance();
 
         $record->setServerReceiveTimestamp(microtime(true));
 
@@ -30,7 +35,7 @@ class Report extends ApiBaseController
         $record->setErrorStackByCompressedRaw($this->apiPayloadParam('es', ''));
 
 
-        ClientReportEvent::reportSingleRecord($record);
+        ClientReportEvent::SingleRecordReported($record);
 
         return $this->apiSuccess();
     }
